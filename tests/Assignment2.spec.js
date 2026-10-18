@@ -1,7 +1,7 @@
 import { test, expect } from "playwright/test"
 
 
-test("@Assignment2 Assignment - 2 - Verify email field retains entered value and newbrowser context handling", async ({ page, browser }) => {
+test("@Assignment2 Assignment - 2 - Browser Context Page Fixture and Config", async ({ page, browser }) => {
     // PART 1
     // Open the login page using the built-in page fixture (baseURL from playwright.config.js is auto-prepended)
     await page.goto('/login')

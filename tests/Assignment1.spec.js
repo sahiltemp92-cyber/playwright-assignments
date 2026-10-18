@@ -1,7 +1,7 @@
 import { test, expect } from "playwright/test"
 
 
-test("@Assignment1 - Assignment - 1 - Part 1 - Verify that login page loads properly", async ({ page }) => {
+test("@Assignment1 - Assignment - 1 - Part 1 - Playwright Project Setup and First Test", async ({ page }) => {
     // Locators or variables
     const baseURL = "https://eventhub.rahulshettyacademy.com/"
     const signinHeader = page.getByText('Sign in to EventHub', { exact: true })
@@ -18,7 +18,7 @@ test("@Assignment1 - Assignment - 1 - Part 1 - Verify that login page loads prop
 
 })
 
-test("@Assignment1 Assignment - 1 - Part 2 - Verify that login page loads properly", async ({ page }) => {
+test("@Assignment1 Assignment - 1 - Part 2 - Playwright Project Setup and First Test", async ({ page }) => {
     // Locators or variables
     const baseURL = "https://eventhub.rahulshettyacademy.com/"
     const signinHeader = page.getByText('Sign in to EventHub', { exact: true })
