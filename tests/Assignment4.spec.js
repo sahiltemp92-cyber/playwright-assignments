@@ -55,9 +55,39 @@ test("@Assignment4 - Assignment 4 - Multi Booking History and Detail Reconciliat
     expect(firstBookingActualDetails.bookingTicketQuantity).toBe("1")
 
     // Go to events catalog
-    await page.goto("/events")
+    await bookingDetailsPage.goToEvents()
 
     // Book second event
+    const searchWorldText2 = "Dilli"
+    const searchCategory2 = "Festival"
+    const searchCity2 = "Delhi"
+
+    await eventsListPage.bookFirstMatchingEvent(searchWorldText2, searchCategory2, searchCity2)
+
+    const secondBookingDetails = {
+        name: "Second User",
+        email: "seconduser@email.com",
+        phone: "1234567891",
+        quantity: 2
+    }
+    await eventsDetailPage.confirmBooking(secondBookingDetails.name, secondBookingDetails.email, secondBookingDetails.phone, secondBookingDetails.quantity)
+    expect(await eventsDetailPage.bookingConfirmationHeader.textContent()).toContain("Booking Confirmed")
+
+    // Get booking confirmation details
+    const secondBookingConfirmationDetails = await eventsDetailPage.getBookingConfirmationDetails()
+    console.log("First booking confirmation details:", secondBookingConfirmationDetails)
+
+
+    await eventsDetailPage.viewMyBookingsButton.click()
+    await myBookingListPage.viewBookingDetails(secondBookingConfirmationDetails.bookingRefNumber)
+
+    // Get booking details from booking details page
+    const secondBookingActualDetails = await bookingDetailsPage.getBookingDetails()
+    console.log("Second booking details:", secondBookingActualDetails)
+    expect(secondBookingActualDetails.bookingEventTitle).toBe("Dilli Diwali Mela")
+    expect(secondBookingActualDetails.bookingRefNumber).not.toBe("")
+    expect(secondBookingActualDetails.bookingTicketQuantity).toBe("2")
+
 
 }
 )

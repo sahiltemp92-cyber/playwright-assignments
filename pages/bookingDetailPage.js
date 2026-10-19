@@ -1,9 +1,10 @@
 import { test, expect } from "@playwright/test"
+import { BasePage } from "./basePage";
 
-export class BookingDetailsPage {
+export class BookingDetailsPage extends BasePage {
     constructor(page) {
-        this.page =
-            this.bookingReferenceNumber = page.locator("span.bg-indigo-50")
+        super(page)
+        this.bookingReferenceNumber = page.locator("span.bg-indigo-50")
         this.bookingStatus = page.locator("span.ring-1")
         this.bookingHeader = page.locator('h1:visible')
         // Event details
