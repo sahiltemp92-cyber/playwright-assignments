@@ -4,7 +4,7 @@ export class LandingPage {
         this.browseEventsButton = page.getByText('Browse Events →', { exact: true })
     }
 
-    async clickBrowseEvents() {
+    async goToEventsList() {
         await this.browseEventsButton.click()
     }
 }

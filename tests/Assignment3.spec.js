@@ -21,7 +21,7 @@ test("@Assignment3 - Assignment - 3 - Events List Locators and Text Assertions",
     await loginPage.clickSignin()
 
     // Browse Events
-    await landingPage.clickBrowseEvents()
+    await landingPage.goToEventsList()
 
     // Verify Upcoming events header is displayed
     await eventsListPage.verifyUpcomingEventsHeader()
